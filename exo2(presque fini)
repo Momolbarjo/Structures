@@ -151,15 +151,15 @@ else if (x.mois<10){
     printf("La date est le %d/0%d/%d",x.jour, x.mois,x.annee);
 }
 else{
-printf("La date est le %d/%d/%d",x.jour, x.mois,x.annee);
+    printf("La date est le %d/%d/%d",x.jour, x.mois,x.annee);
 }
 printf("\n");
 }
 
 void main() {
-Date test;
-test=constructeur_Date();
-affiche_Date(test);
-affiche_Date(ajoute_jour(test,242));
-affiche_Date(enleve_jour(ajoute_jour(test,242),3));
+    Date test;
+    test=constructeur_Date();
+    affiche_Date(test);
+    affiche_Date(ajoute_jour(test,242));
+    affiche_Date(enleve_jour(ajoute_jour(test,242),3));
 }
