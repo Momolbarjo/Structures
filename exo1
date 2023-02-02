@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <math.h>
+
+
+typedef struct {
+
+    float abscisse;
+    float ordonnee;
+
+} Point;
+
+
+Point constructeur_Point(){
+
+Point a;
+printf("Saisir la valeur  en abscisse : ");
+scanf("%f", &a.abscisse);
+printf("Saisir la valeur de ordonnee: ");
+scanf("%f", &a.ordonnee);
+printf("\n");
+
+return  a;
+
+}
+
+Point  ajouter_Point(Point a, Point b){
+
+Point nouveauPoint;
+
+nouveauPoint.abscisse=a.abscisse+b.abscisse;
+nouveauPoint.ordonnee=a.ordonnee+b.ordonnee;
+
+return nouveauPoint;
+
+}
+
+float longueur( Point a, Point b){
+
+float longueur;
+
+longueur= pow(b.abscisse-a.abscisse,2)+pow(b.ordonnee-a.ordonnee,2);
+longueur= sqrt(longueur);
+return longueur ;
+}
+
+int estCarre( Point a, Point b, Point c, Point d){
+
+double ab=sqrt(pow(b.abscisse-a.abscisse,2)+pow(b.ordonnee-a.ordonnee,2));
+double bc=sqrt(pow(c.abscisse-b.abscisse,2)+pow(c.ordonnee-b.ordonnee,2));
+double cd=sqrt(pow(d.abscisse-c.abscisse,2)+pow(d.ordonnee-c.ordonnee,2));
+double da=sqrt(pow(a.abscisse-d.abscisse,2)+pow(a.ordonnee-d.ordonnee,2));
+double ac=sqrt(pow(c.abscisse-a.abscisse,2)+pow(c.ordonnee-a.ordonnee,2));
+double bd=sqrt(pow(d.abscisse-b.abscisse,2)+pow(d.ordonnee-b.ordonnee,2));
+
+if(ab==bc && bc==cd && cd==da && da==ac && ac==bd && bd !=0 ) {
+
+    return 1;
+}
+else {
+    return 0;
+}
+
+}
+
+
+int sontAlignes( Point a, Point b, Point c){
+
+Point vectAB;
+Point vectAC;
+
+vectAB.abscisse=b.abscisse-a.abscisse;
+vectAB.ordonnee=b.ordonnee-a.ordonnee;
+
+vectAC.abscisse=c.abscisse-a.abscisse;
+vectAC.ordonnee=c.ordonnee-a.ordonnee;
+
+int produitScalaire=vectAB.abscisse*vectAC.abscisse+vectAB.ordonnee*vectAC.ordonnee;
+
+if(produitScalaire==0){
+
+    return 1;
+}
+else {
+
+    return 0;
+
+}
+
+}
+
+void affiche_Point( Point x){
+
+printf("Les coordonees du point  sont (%f,%f) \n",   x.abscisse,  x.ordonnee);
+printf("\n");
+}
+
+void main () {
+
+Point var1,var2,nouveauPoint;
+float segment;
+
+var1=constructeur_Point();
+affiche_Point(var1);
+var2=constructeur_Point();
+affiche_Point(var2);
+nouveauPoint=ajouter_Point( var1,var2);
+affiche_Point(nouveauPoint);
+
+segment=longueur(var1,var2);
+
+printf("La longueur du segment est de %f",segment);
+
+if(sontAlignes(var1,var2,nouveauPoint)==1){
+
+    printf("\nLes points sont alignes");
+}
+else {
+
+     printf("\nLes points ne sont pas alignes");
+
+}
+
+
+}
