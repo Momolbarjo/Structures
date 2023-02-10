@@ -77,17 +77,17 @@ void main()
 Ninja var1,var2;
 srand(time(NULL));
 
-var1.attaque=(rand()%6)+5;
-var2.attaque=(rand()%6)+5;
+var1.attaque=(float)((rand()%51))/10+5;
+var2.attaque=(float)((rand()%51))/10+5;
 
-var1.defense=(rand()%3)+2;
-var2.defense=(rand()%3)+2;
+var1.defense=(float)((rand()%31)/10)+2;
+var2.defense=(float)((rand()%31)/10)+2;
 
 var1.esquive=((float)rand() / (float)RAND_MAX) + 0.1;
 var2.esquive=((float)rand() / (float)RAND_MAX) + 0.1;
 
-var1.points2vie=(rand()%21)+80;
-var2.points2vie=(rand()%21)+80;
+var1.points2vie=(float)((rand()%210)/10)+80;
+var2.points2vie=(float)((rand()%210)/10)+80;
 
 printf("Entrez le nom du ninja 1: ");
 scanf("%s",var1.nom);
