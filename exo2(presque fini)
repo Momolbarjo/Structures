@@ -11,14 +11,14 @@ Date constructeur_Date(){
     Date a;
     printf("Saisir le jour : ");
     scanf("%d", &a.jour);
-    while (a.jour>30 || a.jour<0)
+    while (a.jour>30 || a.jour<1)
     {
         printf("Erreur, Saisir un  jour correct : ");
         scanf("%d", &a.jour);
     }
     printf("Saisir le mois: ");
     scanf("%d", &a.mois);
-    while (a.mois>12 || a.mois<0)
+    while (a.mois>12 || a.mois<1)
     {
         printf("Erreur, Saisir un  mois correct : ");
         scanf("%d", &a.mois);
