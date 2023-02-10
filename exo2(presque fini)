@@ -14,7 +14,7 @@ Date constructeur_Date(){
     int a;
     
     printf("Saisir le jour : ");
-    scanf("%d",j);
+    scanf("%d",&j);
     while (j>30 || j<1)
     {
         printf("Erreur, Saisir un  jour correct : ");
