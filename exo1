@@ -74,7 +74,7 @@ vectAB.ordonnee=b.ordonnee-a.ordonnee;
 vectAC.abscisse=c.abscisse-a.abscisse;
 vectAC.ordonnee=c.ordonnee-a.ordonnee;
 
-int produitScalaire=vectAB.abscisse*vectAC.abscisse+vectAB.ordonnee*vectAC.ordonnee;
+float produitScalaire=vectAB.abscisse*vectAC.abscisse+vectAB.ordonnee*vectAC.ordonnee;
 
 if(produitScalaire==0){
 
