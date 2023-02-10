@@ -9,10 +9,10 @@ typedef struct {
 
 Date constructeur_Date(){
     Date d;
-   
+
     printf("Saisir le jour : ");
     scanf("%d",&d.jour);
-    while (j>30 || j<1)
+    while (d.jour>30 || d.jour<1)
     {
         printf("Erreur, Saisir un  jour correct : ");
         scanf("%d", &d.jour);
@@ -26,12 +26,12 @@ Date constructeur_Date(){
     }
     printf("Saisir l'annee: ");
     scanf("%d", &d.annee);
-    while (a.annee<0)
+    while (d.annee<0)
     {
         printf("Erreur, Saisir une annee correct : ");
-        scanf("%d", &a.annee);
+        scanf("%d", &d.annee);
     }
-    
+
     return  d;
 }
 
@@ -41,6 +41,7 @@ Date newDate;
 if(jour >= 360){
     newDate.annee=a.annee -(jour/360);
     jour=jour%360;
+}
     newDate.jour=a.jour-jour;
 if (newDate.jour<=0){
     newDate.mois=a.mois+(newDate.jour/30);
@@ -62,30 +63,8 @@ if(newDate.mois<=0){
 else{
     newDate.annee=newDate.annee;
 }
-}
-else if( jour<360){
-newDate.jour=a.jour-jour;
-if (newDate.jour<=0){
-    newDate.mois=a.mois+(newDate.jour/30);
-    newDate.jour=(newDate.jour%30);
-if (newDate.jour==0){
-    newDate.jour=1;
-}
-}
-else{
-    newDate.mois=a.mois;
-}
-if(newDate.mois<=0){
-    newDate.annee=a.annee+(newDate.mois/12);
-    newDate.mois=(newDate.mois%12);
-    if (newDate.mois==0){
-        newDate.mois=1;
-    }
-}
-else{
-    newDate.annee=a.annee;
-}
-}
+
+
 return newDate;
 }
 
@@ -162,6 +141,6 @@ void main() {
     Date test;
     test=constructeur_Date();
     affiche_Date(test);
-    affiche_Date(ajoute_jour(test,242));
+    affiche_Date(ajoute_jour(test,365));
     affiche_Date(enleve_jour(ajoute_jour(test,242),3));
 }
