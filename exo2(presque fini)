@@ -37,35 +37,31 @@ Date constructeur_Date(){
 
 
 Date enleve_jour(Date a, int jour){
-Date newDate;
-if(jour >= 360){
-    newDate.annee=a.annee -(jour/360);
-    jour=jour%360;
-}
-    newDate.jour=a.jour-jour;
-if (newDate.jour<=0){
-    newDate.mois=a.mois+(newDate.jour/30);
-    newDate.jour=(newDate.jour%30);
-if (newDate.jour==0){
-    newDate.jour=1;
-}
-}
-else{
-    newDate.mois=a.mois;
-}
-if(newDate.mois<=0){
-    newDate.annee=newDate.annee+(newDate.mois/12);
-    newDate.mois=(newDate.mois%12);
-    if (newDate.mois==0){
-        newDate.mois=1;
+    Date newDate = a;
+    int m;
+    if(jour >= 360){
+        newDate.annee = a.annee - (jour/360);
+        jour = jour % 360;
     }
-}
-else{
-    newDate.annee=newDate.annee;
-}
 
+    if(jour >= 30){
+        m = jour / 30;
+        newDate.mois = a.mois - m;
+    }
+    else{
+        newDate.mois = a.mois;
+    }
 
-return newDate;
+    newDate.jour = a.jour - (jour % 30);
+    while(newDate.jour <= 0){
+        newDate.mois--;
+        if(newDate.mois <= 0){
+            newDate.annee--;
+            newDate.mois = 12;
+        }
+        newDate.jour += 30;
+    }
+    return newDate;
 }
 
 Date ajoute_jour(Date a, int jour){
@@ -76,20 +72,13 @@ if(jour >= 360){
     newDate.jour=a.jour+jour;
 if (newDate.jour>30){
     newDate.mois=a.mois+(newDate.jour/30);
-    newDate.jour=(newDate.jour%30);
-if (newDate.jour==0){
-    newDate.jour=1;
+    newDate.jour=(newDate.jour%30+1)-1;
 }
-}
-else{
-    newDate.mois=a.mois;
-}
+
 if(newDate.mois>12){
     newDate.annee=newDate.annee+(newDate.mois/12);
-    newDate.mois=(newDate.mois%12);
-    if (newDate.mois==0){
-        newDate.mois=1;
-    }
+    newDate.mois=(newDate.mois%12)+1;
+
 }
 else{
     newDate.annee=newDate.annee;
@@ -99,20 +88,14 @@ else if( jour<360){
 newDate.jour=a.jour+jour;
 if (newDate.jour>30){
     newDate.mois=a.mois+(newDate.jour/30);
-    newDate.jour=(newDate.jour%30);
-if (newDate.jour==0){
-    newDate.jour=1;
+    newDate.jour=(newDate.jour%30+1)-1;
+
 }
-}
-else{
-    newDate.mois=a.mois;
-}
+
 if(newDate.mois>12){
     newDate.annee=a.annee+(newDate.mois/12);
-    newDate.mois=(newDate.mois%12);
-    if (newDate.mois==0){
-        newDate.mois=1;
-    }
+    newDate.mois=(newDate.mois%12)+1;
+
 }
 else{
     newDate.annee=a.annee;
@@ -142,5 +125,5 @@ void main() {
     test=constructeur_Date();
     affiche_Date(test);
     affiche_Date(ajoute_jour(test,365));
-    affiche_Date(enleve_jour(ajoute_jour(test,242),3));
+    affiche_Date(enleve_jour(ajoute_jour(test,365),5));
 }
