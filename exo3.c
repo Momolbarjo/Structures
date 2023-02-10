@@ -34,14 +34,14 @@ if (degatInflige1<0){
                     }
 
 b.points2vie=b.points2vie-degatInflige1;
-printf("Aie %s, tu perds %f points de vie,ne t'inquiete pas il te reste %f points de vie\n",b.nom,degatInflige1,b.points2vie);
+printf("Aie %s, tu perds %.3f points de vie,ne t'inquiete pas il te reste %.3f points de vie\n",b.nom,degatInflige1,b.points2vie);
 
 }
 degat2=(float)rand()/(float)RAND_MAX;
 
 if (degat2<= a.esquive)
     {
-    printf("Hop, c'est l'esquive de %s\n",a.nom);
+    printf("Hop, c'est l'esquive de  jb dedicace a %s\n",a.nom);
 
     }
 else{
@@ -52,7 +52,7 @@ if (degatInflige2<0){
                     }
 
 a.points2vie=a.points2vie-degatInflige2;
-printf("Aie %s, tu perds %f points de vie,ne t'inquiete pas il te reste %f points de vie\n",a.nom,degatInflige2,a.points2vie);
+printf("Aie %s, tu perds %.3f points de vie,ne t'inquiete pas il te reste %.3f points de vie\n",a.nom,degatInflige2,a.points2vie);
     }
 
     printf("\n");
