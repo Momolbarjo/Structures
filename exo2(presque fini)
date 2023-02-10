@@ -36,7 +36,7 @@ Date constructeur_Date(){
     }
     d.jour=j;
     d.mois=m;
-    d.annee=d;
+    d.annee=a;
     return  d;
 }
 
