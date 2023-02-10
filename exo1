@@ -45,12 +45,12 @@ return longueur ;
 
 int estCarre( Point a, Point b, Point c, Point d){
 
-double ab=sqrt(pow(b.abscisse-a.abscisse,2)+pow(b.ordonnee-a.ordonnee,2));
-double bc=sqrt(pow(c.abscisse-b.abscisse,2)+pow(c.ordonnee-b.ordonnee,2));
-double cd=sqrt(pow(d.abscisse-c.abscisse,2)+pow(d.ordonnee-c.ordonnee,2));
-double da=sqrt(pow(a.abscisse-d.abscisse,2)+pow(a.ordonnee-d.ordonnee,2));
-double ac=sqrt(pow(c.abscisse-a.abscisse,2)+pow(c.ordonnee-a.ordonnee,2));
-double bd=sqrt(pow(d.abscisse-b.abscisse,2)+pow(d.ordonnee-b.ordonnee,2));
+double ab=longueur(a,b);
+double bc=longueur(b,c);
+double cd=longueur(c,d);
+double da=longueur(d,a);
+double ac=longueur(a,c);
+double bd=longueur(b,d);
 
 if(ab==bc && bc==cd && cd==da && da==ac && ac==bd && bd !=0 ) {
 
