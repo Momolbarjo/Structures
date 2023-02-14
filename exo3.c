@@ -11,7 +11,7 @@ typedef struct{
     char nom[100];
 } Ninja;
 
-Ninja combat(Ninja a, Ninja b){
+void combat(Ninja a, Ninja b){
 
 void srand(unsigned int seed);
 srand(time(NULL));
